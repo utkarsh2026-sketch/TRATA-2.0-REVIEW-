@@ -1,0 +1,117 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRATA 2.0 | Feedback Hub</title><style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:#020a18;color:#edf9ff;font-family:Inter,Segoe UI,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-5;background:radial-gradient(circle at 18% 20%,#08a9df35,transparent 30%),radial-gradient(circle at 82% 75%,#5d38ff2b,transparent 32%),#020a18}
+.network{position:fixed;inset:0;z-index:-4;opacity:.8;background-image:radial-gradient(circle,#4be8ff 1.5px,transparent 2px),linear-gradient(35deg,transparent 48%,#2ddcff12 49%,#2ddcff12 50%,transparent 51%),linear-gradient(125deg,transparent 48%,#2ddcff0d 49%,#2ddcff0d 50%,transparent 51%);background-size:125px 125px,190px 150px,220px 180px;animation:networkMove 7s linear infinite}
+.network:after{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 20% 40%,transparent 0 14%,#1ecfff08 14.2% 14.4%,transparent 14.6%),radial-gradient(circle at 75% 25%,transparent 0 17%,#6c63ff08 17.2% 17.4%,transparent 17.6%);animation:floatNetwork 5s ease-in-out infinite alternate}
+@keyframes networkMove{to{background-position:125px 80px,260px 210px,-180px 150px}}
+@keyframes floatNetwork{to{transform:translate3d(0,-18px,0) scale(1.03)}}
+.orb{position:fixed;border-radius:50%;filter:blur(75px);z-index:-3;pointer-events:none}.orb1{width:330px;height:330px;background:#00cfff2b;left:-120px;top:180px;animation:orb 5s ease-in-out infinite}.orb2{width:300px;height:300px;background:#704bff24;right:-100px;bottom:80px;animation:orb 6s ease-in-out infinite reverse}@keyframes orb{50%{transform:translate(35px,-25px) scale(1.12)}}
+.nav{height:64px;position:sticky;top:0;z-index:20;padding:0 7%;display:flex;align-items:center;justify-content:space-between;background:#020a18e8;border-bottom:1px solid #2bdcff27;backdrop-filter:blur(15px)}
+.brand{font-weight:950;font-size:25px;letter-spacing:2px}.brand span{color:#3fe0ff;text-shadow:0 0 22px #3fe0ff55}
+.clock{font:800 14px monospace;color:#64e7ff}
+main{width:min(900px,92%);margin:auto}.hero{text-align:center;padding:48px 10px 28px}.pill{display:inline-block;padding:7px 12px;border-radius:999px;border:1px solid #32dfff35;background:#052338aa;color:#58e5ff;font-size:10px;font-weight:900;letter-spacing:2.5px;animation:pillPulse 2s ease-in-out infinite}@keyframes pillPulse{50%{box-shadow:0 0 25px #00d5ff18}}
+.hero h1{font-size:clamp(40px,7vw,68px);line-height:1;margin:17px 0 12px;letter-spacing:-2px}.hero h1 span{color:#4fe2ff;text-shadow:0 0 35px #28dcff44}.hero p{max-width:680px;margin:auto;color:#a6bac8;line-height:1.7}.credit{margin-top:15px;color:#58e4ff;font-weight:800;line-height:1.4}.credit small{color:#9bb0be;font-weight:600}.features{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:17px 0}.features span{font-size:9px;letter-spacing:1.5px;color:#83dbea;border:1px solid #36dfff20;background:#041726aa;padding:6px 9px;border-radius:999px;animation:badge 1.7s ease-in-out infinite}.features span:nth-child(2){animation-delay:.25s}.features span:nth-child(3){animation-delay:.5s}.features span:nth-child(4){animation-delay:.75s}@keyframes badge{50%{transform:translateY(-4px);border-color:#39ddff55;box-shadow:0 7px 18px #00cfff12}}
+.card{position:relative;background:linear-gradient(145deg,#041327f2,#020a17f0);border:1px solid #35dfff32;border-radius:22px;padding:28px;margin:22px 0;box-shadow:0 25px 80px #0009,0 0 45px #00d5ff08;overflow:hidden}.card:after{content:"";position:absolute;left:-25%;top:0;width:25%;height:1px;background:linear-gradient(90deg,transparent,#55eaff,transparent);animation:scan 3s linear infinite}@keyframes scan{to{left:125%}}
+.section-tag{color:#55e4ff;font-size:10px;font-weight:900;letter-spacing:3px}.card h2{font-size:27px;margin:8px 0 6px}.muted{color:#8fa9b9;margin-top:0;line-height:1.6}
+label{display:block;font-size:15px;font-weight:850;margin:18px 0 8px}label b{color:#ff6c91}
+input,select,textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid #234d65;background:#020a17;color:#f0fbff;font:inherit;outline:none;transition:.2s}input:focus,select:focus,textarea:focus{border-color:#3bdfff;box-shadow:0 0 0 3px #3bdfff10}select{cursor:pointer;appearance:auto}select option{background:#061426;color:#fff}textarea{resize:vertical;min-height:90px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stars{display:flex;gap:3px}.stars button{border:0;background:none;color:#304b5b;font-size:40px;padding:0;cursor:pointer;transition:.15s}.stars button.active,.stars button:hover{color:#ffd45c;transform:scale(1.1);text-shadow:0 0 18px #ffd45c44}
+.signature{height:170px;border:1px dashed #2c7990;background:#010611;border-radius:12px;overflow:hidden}.signature canvas{width:100%;height:100%;touch-action:none}.secondary{border:1px solid #285970;background:#061827;color:#bceaf6;padding:9px 13px;border-radius:9px;font-weight:800;cursor:pointer}.secondary:hover{border-color:#3be0ff}.submit{width:100%;border:0;border-radius:12px;padding:14px;margin-top:17px;color:#fff;background:linear-gradient(100deg,#06bce7,#5364ff);font-weight:900;cursor:pointer;transition:.2s;box-shadow:0 12px 32px #00bde82a}.submit:hover{transform:translateY(-2px);box-shadow:0 17px 40px #00bde844}
+.success,.error{padding:12px;border-radius:10px;margin-top:12px}.success{background:#063b2d;color:#83efbd}.error{background:#401c26;color:#ffadba}
+.thank{text-align:center;padding:50px 25px}.success-icon{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;margin:auto;background:#0ec37b;font-size:45px;box-shadow:0 0 40px #0ec37b40}.thank-actions{display:flex;gap:10px}.half{flex:1}.big{margin-top:17px;width:100%}
+.admin-card{scroll-margin-top:80px}.login-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.dash-top{display:flex;justify-content:space-between;align-items:center}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:17px 0}.stat{padding:14px;border:1px solid #204b62;border-radius:11px;background:#03111e}.stat b{display:block;font-size:25px;color:#5de6ff}.toolbar{display:grid;gap:10px}.filters{display:flex;gap:6px;flex-wrap:wrap}.filter{border:1px solid #24546a;background:#061726;color:#9fc5d2;padding:8px 12px;border-radius:8px;cursor:pointer}.filter.active{border-color:#27d7f4;color:#61e8ff}.record{border:1px solid #173e54;border-radius:12px;background:#030b15;padding:16px;margin:10px 0;animation:recordIn .3s ease both}.meta{font-size:12px;color:#8ba5b3}.rate{color:#ffd35a;font-size:20px;margin:7px 0}.record p{color:#bfd0da;line-height:1.5}.sig-preview{max-width:190px;max-height:70px;border-radius:7px;background:#01050a}footer{text-align:center;color:#5f7a89;padding:30px 10px 50px;font-size:12px;line-height:1.7}
+@keyframes recordIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@media(max-width:650px){.nav{padding:0 4%}.hero{padding-top:38px}.hero h1{font-size:42px}.card{padding:20px}.two,.login-grid,.stats{grid-template-columns:1fr}.thank-actions{display:block}.stars button{font-size:38px}}
+
+/* V4 — faster futuristic motion */
+.institution-block{margin-top:8px}.institution-select{width:100%;appearance:auto!important;background:#030b1b!important;color:#f2fbff!important;border:1px solid #27d9f2!important;border-radius:15px!important;padding:17px 18px!important;font-size:17px!important;font-weight:700!important;cursor:pointer!important;box-shadow:0 0 22px #00d9ff0b;transition:.18s}
+.institution-select:hover,.institution-select:focus{border-color:#5ceaff!important;box-shadow:0 0 0 3px #37dcff16,0 0 25px #00cfff18!important}
+.institution-select option{background:#07172a;color:#f3fbff;padding:12px}
+.select-hint{font-size:11px;color:#5f9eb1;margin-top:7px;letter-spacing:.4px}
+.feature-row{animation:rowFloat 2.2s ease-in-out infinite}.feature-row span{animation-duration:1.45s!important}
+.stars-bg{animation:drift 10s linear infinite!important;opacity:.52}
+.glow.g1{animation:glowMove1 3.8s ease-in-out infinite alternate}.glow.g2{animation:glowMove2 4.3s ease-in-out infinite alternate}
+@keyframes glowMove1{from{transform:translate(-20px,-10px) scale(.9)}to{transform:translate(55px,55px) scale(1.15)}}
+@keyframes glowMove2{from{transform:translate(25px,25px) scale(.85)}to{transform:translate(-55px,-45px) scale(1.12)}}
+@keyframes rowFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.card:after{content:"";position:absolute;top:-20%;left:-15%;width:25%;height:140%;background:linear-gradient(90deg,transparent,#5deaff12,transparent);transform:rotate(18deg);animation:lightSweep 3.2s linear infinite;pointer-events:none}
+@keyframes lightSweep{0%{left:-30%}100%{left:120%}}
+.tech-ring{animation-duration:5.5s!important}.orbit-one{animation-duration:3.8s!important}.orbit-two{animation-duration:5.2s!important}
+.scroll-cue span{animation-duration:.8s!important}
+.record{animation-duration:.18s!important}
+
+/* V5 animation upgrade */
+body{background:#020713}
+.stars-bg{background-image:radial-gradient(#8beaffaa 1px,transparent 1px),radial-gradient(#7b79ffaa 1.2px,transparent 1.2px),radial-gradient(#ffffff66 .8px,transparent .8px);background-size:70px 70px,115px 115px,175px 175px;animation:starRush 7s linear infinite}
+@keyframes starRush{to{background-position:280px 140px,-230px 210px,170px -190px}}
+.stars-bg:before{content:"";position:absolute;inset:-20%;background:conic-gradient(from 0deg,transparent,#19dfff0d,transparent 22%,#6f5cff10,transparent 45%);animation:spaceSpin 9s linear infinite}
+@keyframes spaceSpin{to{transform:rotate(360deg)}}
+.glow.g1{animation:fastGlow1 2.8s ease-in-out infinite alternate}.glow.g2{animation:fastGlow2 3.1s ease-in-out infinite alternate}
+@keyframes fastGlow1{0%{transform:translate(-40px,-20px) scale(.75)}100%{transform:translate(75px,65px) scale(1.2)}}
+@keyframes fastGlow2{0%{transform:translate(50px,45px) scale(.75)}100%{transform:translate(-80px,-70px) scale(1.2)}}
+.hero-orbit.orbit-one{animation:orbitFast1 2.8s ease-in-out infinite}
+.hero-orbit.orbit-two{animation:orbitFast2 3.7s ease-in-out infinite}
+@keyframes orbitFast1{0%,100%{transform:translate(-50%,-50%) rotate(-12deg) scale(.92);opacity:.25}50%{transform:translate(-50%,-50%) rotate(12deg) scale(1.08);opacity:1}}
+@keyframes orbitFast2{0%,100%{transform:translate(-50%,-50%) rotate(15deg) scale(.9);opacity:.2}50%{transform:translate(-50%,-50%) rotate(-15deg) scale(1.1);opacity:.8}}
+.tech-ring{animation:techSpin 2.6s linear infinite!important}
+@keyframes techSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.card:after{animation:lightSweep 1.8s linear infinite!important}
+.feature-row span{animation:badgeBounce .9s ease-in-out infinite alternate!important}
+@keyframes badgeBounce{to{transform:translateY(-5px) scale(1.025);box-shadow:0 10px 28px #00dfff1a}}
+.nav{box-shadow:0 0 30px #00dfff0c}.brand{animation:brandPulse 1.8s ease-in-out infinite alternate}
+@keyframes brandPulse{to{text-shadow:0 0 18px #3fe5ff55}}
+.submit{background-size:200% 100%;animation:buttonFlow 2s linear infinite}
+@keyframes buttonFlow{to{background-position:200% 0}}
+</style></head>
+<body><div class="network"></div><div class="orb orb1"></div><div class="orb orb2"></div>
+<header class="nav"><div class="brand">TRATA <span>2.0</span></div><div class="clock" id="clock"></div></header>
+<main>
+<section class="hero"><div class="pill">AUTONOMOUS DISASTER RESPONSE &amp; RESCUE SYSTEM</div><h1>PROJECT <span>TRATA 2.0</span></h1><p>Thank you for visiting and experiencing our project. Your valuable feedback helps us improve TRATA 2.0.</p><div class="credit">Created by Ali Azhaan &amp; Utkarsh Mall<br><small>Sunbeam School, Mau</small></div><div class="features"><span>⚡ AUTONOMOUS</span><span>🛰️ RESCUE</span><span>🤖 INTELLIGENT</span><span>🌐 CONNECTED</span></div></section>
+<section class="card" id="feedbackSection"><div class="section-tag">FEEDBACK HUB</div><h2>📝 Give Your Feedback</h2><p class="muted">Please take a moment to rate Project TRATA 2.0 and share your thoughts.</p>
+<form id="feedbackForm">
+<label>Your Name <b>*</b></label><input id="name" required placeholder="Enter your full name">
+<div class="two"><div><div class="institution-block">
+<label>Institution Type <b>*</b></label>
+<select id="institution" class="institution-select" required>
+<option value="" selected disabled>▼ Select institution type</option>
+<option>School</option>
+<option>College</option>
+<option>University</option>
+<option>Organisation</option>
+<option>Government Institution</option>
+<option>Private Institution</option>
+<option>Other</option>
+</select>
+<div class="select-hint">Choose the type of institution</div>
+</div>
+<label>Designation / Role</label><input id="designation" placeholder="Judge, Teacher, Student, Visitor, etc.">
+<label>⭐ Rate Project TRATA 2.0 <b>*</b></label><div class="stars" id="stars"><button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button></div>
+<label>What did you like about our project?</label><textarea id="liked" placeholder="Share what you liked..."></textarea>
+<label>What improvements can we make?</label><textarea id="improve" placeholder="Your suggestions for improvement..."></textarea>
+<label>Additional Suggestions</label><textarea id="suggestions" placeholder="Any other suggestions..."></textarea>
+<label>✍️ Digital Signature <b>*</b></label><div class="signature"><canvas id="canvas"></canvas></div><button type="button" class="secondary" id="clear">Clear Signature</button>
+<button class="submit" type="submit">🚀 Submit Feedback</button><div id="msg"></div></form></section>
+<section class="thank card" id="thank" hidden><div class="success-icon">✓</div><div class="section-tag">SUBMISSION COMPLETE</div><h2>Thank You for Your Feedback!</h2><p>Your valuable feedback for <b>TRATA 2.0</b> has been successfully submitted.</p><div class="thank-actions"><button class="submit half" id="certificateBtn">🏆 Generate Appreciation Certificate</button><button class="secondary big" onclick="location.reload()">Submit Another Feedback</button></div></section>
+<section class="card admin-card" id="adminSection"><div id="loginView"><div class="section-tag">SECURE ACCESS</div><h2>🔐 Admin Portal</h2><p class="muted">Access the complete TRATA 2.0 feedback database.</p><form id="login"><div class="login-grid"><input id="username" placeholder="Admin Username"><input id="password" type="password" placeholder="Admin Password"></div><button class="submit">Open Admin Dashboard</button></form><div id="loginMsg"></div></div>
+<div id="dashboard" hidden><div class="dash-top"><div><div class="section-tag">ADMIN DASHBOARD</div><h2>TRATA 2.0 — All Feedback</h2></div><button class="secondary" id="logout">Logout</button></div><div id="stats" class="stats"></div><div class="toolbar"><input id="search" placeholder="🔎 Search name, institution or role..."><div class="filters"><button class="filter active" data-filter="All">All</button><button class="filter" data-filter="5">5 ★</button><button class="filter" data-filter="4">4 ★</button><button class="filter" data-filter="3">3 ★</button><button class="filter" data-filter="2">2 ★</button><button class="filter" data-filter="1">1 ★</button></div></div><div id="records"></div></div></section>
+</main><footer><b>TRATA 2.0</b><br>Created by Ali Azhaan &amp; Utkarsh Mall · Sunbeam School, Mau</footer>
+<script>
+const $=id=>document.getElementById(id);let rating=0,hasSig=false,allRecords=[],currentFilter="All";
+function tick(){$("clock").textContent=new Date().toLocaleTimeString("en-GB")}tick();setInterval(tick,1000);
+document.querySelectorAll(".stars button").forEach(b=>b.onclick=()=>{rating=+b.dataset.v;document.querySelectorAll(".stars button").forEach(x=>x.classList.toggle("active",+x.dataset.v<=rating))});
+const c=$("canvas"),ctx=c.getContext("2d");let drawing=false;
+function resize(){let r=c.getBoundingClientRect(),d=devicePixelRatio||1;c.width=r.width*d;c.height=r.height*d;ctx.setTransform(d,0,0,d,0,0);ctx.lineWidth=2.5;ctx.lineCap="round";ctx.strokeStyle="#67e7ff"}resize();addEventListener("resize",resize);
+function pt(e){let r=c.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}c.onpointerdown=e=>{drawing=hasSig=true;let p=pt(e);ctx.beginPath();ctx.moveTo(p.x,p.y)};c.onpointermove=e=>{if(!drawing)return;let p=pt(e);ctx.lineTo(p.x,p.y);ctx.stroke()};c.onpointerup=c.onpointerleave=()=>drawing=false;$("clear").onclick=()=>{ctx.clearRect(0,0,c.clientWidth,c.clientHeight);hasSig=false};
+function msg(t,cl){$("msg").textContent=t;$("msg").className=cl}function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+$("feedbackForm").onsubmit=async e=>{e.preventDefault();if(!$("institution").value)return msg("Please select your institution type.","error");if(!rating)return msg("Please select a star rating.","error");if(!hasSig)return msg("Please add your digital signature.","error");msg("Submitting securely...","success");let data={name:$("name").value,institution:$("institution").value,institution_type:$("institutionType").value,designation:$("designation").value,rating,liked:$("liked").value,improve:$("improve").value,suggestions:$("suggestions").value,signature:c.toDataURL()};try{let r=await fetch("/api/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});let j=await r.json();if(!r.ok)throw Error(j.error||"Could not save feedback.");window.lastFeedback=data;$("feedbackSection").hidden=true;$("thank").hidden=false}catch(err){msg("Database connection is not configured. Please deploy the complete project to Vercel and add Supabase settings.","error")}};
+$("certificateBtn").onclick=()=>{let x=window.lastFeedback;if(!x)return;let w=open("","_blank");if(!w)return alert("Allow pop-ups for the certificate.");w.document.write(`<html><head><title>TRATA 2.0 Appreciation Certificate</title><style>body{margin:0;background:#020713;color:#fff;font-family:Arial;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:25px}.wrap{width:min(700px,100%);text-align:center}.cert{background:#202020;border:2px solid #0cccf2;outline:6px solid #071326;outline-offset:8px;min-height:820px;padding:65px 40px;position:relative}h1{color:#8cddff;font-size:52px}h2{font-weight:400;margin-bottom:65px}.present,.body,.thanks{font-size:22px;line-height:1.5}.name{font-size:52px;font-weight:900;margin:20px 0 35px}.inst{font-size:21px;margin-top:22px}.line{width:70%;height:1px;background:#777;margin:45px auto 15px}.print{margin-top:30px;padding:14px 26px;border:0;border-radius:12px;background:#0873bb;color:#fff}@media print{body{padding:0;background:white}.cert{min-height:100vh}.print{display:none}}</style></head><body><div class="wrap"><div class="cert"><h1>APPRECIATION</h1><h2>Project TRATA 2.0</h2><div class="present">This certificate is<br>proudly presented to</div><div class="name">${esc(x.name)}</div><div class="body">for giving valuable<br>feedback on Project<br>TRATA 2.0.</div><div class="inst">Institution: <b>${esc(x.institution)}</b></div><div class="thanks">Thank you for<br>helping us improve<br>our project!</div><div class="line"></div><div>Ali Azhaan &amp; Utkarsh Mall<br>Sunbeam School, Mau</div></div><button class="print" onclick="print()">🖨️ Print / Save Certificate</button></div></body></html>`);w.document.close()};
+$("login").onsubmit=async e=>{e.preventDefault();$("loginMsg").textContent="Signing in...";try{let r=await fetch("/api/admin/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:$("username").value,password:$("password").value})});let j=await r.json();if(!r.ok)throw Error(j.error||"Invalid login");$("loginView").hidden=true;$("dashboard").hidden=false;await loadAdmin()}catch(err){$("loginMsg").textContent=err.message;$("loginMsg").className="error"}};
+$("logout").onclick=async()=>{await fetch("/api/admin/logout",{method:"POST"});location.reload()};
+document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentFilter=b.dataset.filter;render()});
+$("search").oninput=()=>render();
+async function loadAdmin(){let r=await fetch("/api/admin/feedbacks");if(!r.ok)throw Error("Admin session expired.");allRecords=await r.json();render()}
+function render(){let q=$("search").value.toLowerCase();let a=allRecords.filter(x=>currentFilter==="All"||String(x.rating)===currentFilter).filter(x=>[x.name,x.institution,x.designation,x.liked,x.improve,x.suggestions].join(" ").toLowerCase().includes(q));let avg=allRecords.length?(allRecords.reduce((s,x)=>s+Number(x.rating),0)/allRecords.length).toFixed(1):"0.0";$("stats").innerHTML=`<div class="stat"><b>${allRecords.length}</b>Total Reviews</div><div class="stat"><b>${avg}</b>Average Rating</div><div class="stat"><b>${allRecords.filter(x=>Number(x.rating)>=4).length}</b>4–5 Star Reviews</div>`;$("records").innerHTML=a.length?a.map(x=>`<article class="record"><div class="meta"><b>${esc(x.name)}</b> · ${esc(x.institution||"No institution")} · ${esc(x.designation||"No role")}</div><div class="rate">${"★".repeat(Number(x.rating))}${"☆".repeat(5-Number(x.rating))}</div><p><b>Liked:</b> ${esc(x.liked||"—")}</p><p><b>Improvements:</b> ${esc(x.improve||"—")}</p><p><b>Suggestions:</b> ${esc(x.suggestions||"—")}</p>${x.signature?`<img class="sig-preview" src="${x.signature}" alt="Digital signature">`:""}</article>`).join(""):"<div class='record'>No feedback found.</div>"}
+</script></body></html>
