@@ -7,7 +7,11 @@
 
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+scroll-behavior:smooth
+}
+
 body{
 margin:0;
 min-height:100vh;
@@ -52,11 +56,15 @@ animation:floatNetwork 5s ease-in-out infinite alternate
 }
 
 @keyframes networkMove{
-to{background-position:125px 80px,260px 210px,-180px 150px}
+to{
+background-position:125px 80px,260px 210px,-180px 150px
+}
 }
 
 @keyframes floatNetwork{
-to{transform:translate3d(0,-18px,0) scale(1.03)}
+to{
+transform:translate3d(0,-18px,0) scale(1.03)
+}
 }
 
 .orb{
@@ -86,7 +94,9 @@ animation:orb 6s ease-in-out infinite reverse
 }
 
 @keyframes orb{
-50%{transform:translate(35px,-25px) scale(1.12)}
+50%{
+transform:translate(35px,-25px) scale(1.12)
+}
 }
 
 .nav{
@@ -143,7 +153,9 @@ animation:pillPulse 2s ease-in-out infinite
 }
 
 @keyframes pillPulse{
-50%{box-shadow:0 0 25px #00d5ff18}
+50%{
+box-shadow:0 0 25px #00d5ff18
+}
 }
 
 .hero h1{
@@ -376,11 +388,12 @@ box-shadow:0 17px 40px #00bde844
 }
 
 @keyframes buttonFlow{
-to{background-position:200% 0}
+to{
+background-position:200% 0
+}
 }
 
-.success,
-.error{
+.success,.error{
 padding:12px;
 border-radius:10px;
 margin-top:12px
@@ -497,6 +510,17 @@ margin:10px 0;
 animation:recordIn .18s ease both
 }
 
+@keyframes recordIn{
+from{
+opacity:0;
+transform:translateY(8px)
+}
+to{
+opacity:1;
+transform:none
+}
+}
+
 .meta{
 font-size:12px;
 color:#8ba5b3
@@ -533,9 +557,15 @@ line-height:1.7
 .hero{padding-top:38px}
 .hero h1{font-size:42px}
 .card{padding:20px}
-.two,.login-grid,.stats{grid-template-columns:1fr}
-.thank-actions{display:block}
-.stars button{font-size:38px}
+.two,.login-grid,.stats{
+grid-template-columns:1fr
+}
+.thank-actions{
+display:block
+}
+.stars button{
+font-size:38px
+}
 }
 </style>
 </head>
@@ -607,16 +637,14 @@ placeholder="Enter your full name"
 
 <div class="two">
 
-<div class="institution-block">
+<div>
 
 <label>
 Institution Type <b>*</b>
 </label>
 
-<select
-id="institution"
-required
->
+<select id="institution" required>
+
 <option value="" selected disabled>
 Select institution type
 </option>
@@ -849,45 +877,27 @@ placeholder="Search name, institution or role..."
 
 <div class="filters">
 
-<button
-class="filter active"
-data-filter="All"
->
+<button class="filter active" data-filter="All">
 All
 </button>
 
-<button
-class="filter"
-data-filter="5"
->
+<button class="filter" data-filter="5">
 5 Star
 </button>
 
-<button
-class="filter"
-data-filter="4"
->
+<button class="filter" data-filter="4">
 4 Star
 </button>
 
-<button
-class="filter"
-data-filter="3"
->
+<button class="filter" data-filter="3">
 3 Star
 </button>
 
-<button
-class="filter"
-data-filter="2"
->
+<button class="filter" data-filter="2">
 2 Star
 </button>
 
-<button
-class="filter"
-data-filter="1"
->
+<button class="filter" data-filter="1">
 1 Star
 </button>
 
@@ -921,11 +931,14 @@ let allRecords = [];
 let currentFilter = "All";
 
 function tick(){
+
 $("clock").textContent =
 new Date().toLocaleTimeString("en-GB");
+
 }
 
 tick();
+
 setInterval(tick,1000);
 
 
@@ -965,6 +978,7 @@ let drawing = false;
 function resizeCanvas(){
 
 const rect = canvas.getBoundingClientRect();
+
 const dpr = window.devicePixelRatio || 1;
 
 canvas.width = rect.width * dpr;
@@ -1087,9 +1101,6 @@ $("feedbackForm").onsubmit = async event => {
 
 event.preventDefault();
 
-
-/* VALIDATION */
-
 if(!$("name").value.trim()){
 
 return msg(
@@ -1126,18 +1137,10 @@ return msg(
 
 }
 
-
 msg(
 "Submitting securely...",
 "success"
 );
-
-
-/*
- IMPORTANT:
- Only fields that exist in the Supabase table
- are sent.
-*/
 
 const data = {
 
@@ -1159,7 +1162,6 @@ signature:canvas.toDataURL("image/png")
 
 };
 
-
 try{
 
 const response =
@@ -1176,9 +1178,6 @@ body:JSON.stringify(data)
 
 }
 );
-
-
-/* Safely read response */
 
 const text =
 await response.text();
@@ -1198,7 +1197,6 @@ text || "Server returned an invalid response."
 
 }
 
-
 if(!response.ok){
 
 throw new Error(
@@ -1207,7 +1205,6 @@ result.error ||
 );
 
 }
-
 
 if(!result.ok){
 
@@ -1218,9 +1215,6 @@ result.error ||
 
 }
 
-
-/* SUCCESS */
-
 window.lastFeedback = data;
 
 $("feedbackSection").hidden = true;
@@ -1229,7 +1223,6 @@ $("thank").hidden = false;
 $("thank").scrollIntoView({
 behavior:"smooth"
 });
-
 
 }catch(error){
 
@@ -1597,7 +1590,7 @@ await fetch(
 if(!response.ok){
 
 throw new Error(
-"Admin session expired."
+"Could not load admin feedback data."
 );
 
 }
@@ -1610,7 +1603,7 @@ let result;
 try{
 
 result =
-text ? JSON.parse(text) : [];
+text ? JSON.parse(text) : {};
 
 }catch{
 
@@ -1620,9 +1613,28 @@ throw new Error(
 
 }
 
+
+/*
+IMPORTANT FIX:
+
+feedbacks.js returns:
+
+{
+  ok: true,
+  feedbacks: [...]
+}
+
+So we support both:
+
+1. Direct array
+2. Object containing feedbacks array
+*/
+
 allRecords =
 Array.isArray(result)
 ? result
+: Array.isArray(result.feedbacks)
+? result.feedbacks
 : [];
 
 render();
