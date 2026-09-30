@@ -24,40 +24,54 @@ module.exports = async (req, res) => {
         headers: {
           apikey: key,
           Authorization: `Bearer ${key}`,
-          "Content-Type": "application/json"
+          Accept: "application/json"
         }
       }
     );
 
-    const text = await response.text();
+    const responseText = await response.text();
 
     if (!response.ok) {
-      console.error("Supabase feedback fetch error:", text);
+      console.error(
+        "Supabase error:",
+        response.status,
+        responseText
+      );
 
       return res.status(500).json({
         ok: false,
-        error: text || "Failed to fetch feedbacks."
+        error: responseText || "Could not read feedback data."
       });
     }
 
-    let feedbacks;
+    let feedbacks = [];
 
     try {
-      feedbacks = JSON.parse(text);
-    } catch (error) {
+      feedbacks = responseText
+        ? JSON.parse(responseText)
+        : [];
+    } catch (parseError) {
       return res.status(500).json({
         ok: false,
-        error: "Invalid response received from database."
+        error: "Database returned invalid JSON."
       });
+    }
+
+    if (!Array.isArray(feedbacks)) {
+      feedbacks = [];
     }
 
     return res.status(200).json({
       ok: true,
-      feedbacks: feedbacks
+      feedbacks: feedbacks,
+      count: feedbacks.length
     });
 
   } catch (error) {
-    console.error("Admin feedbacks API error:", error);
+    console.error(
+      "Admin feedbacks API error:",
+      error
+    );
 
     return res.status(500).json({
       ok: false,
